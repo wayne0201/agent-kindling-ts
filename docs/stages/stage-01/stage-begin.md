@@ -4,7 +4,7 @@
 
 ## 🎯 阶段目标
 
-抛弃所有重框架，用**原生 TypeScript** 调用智谱 GLM API，深刻理解大模型的输入输出机制，并完成第一个具备状态管理的对话程序。
+抛弃所有重框架，用**原生 TypeScript** 调用 LLM API，深刻理解大模型的输入输出机制，并完成第一个具备状态管理的对话程序。
 
 - 吃透 Chat Completion API 的基本结构（`messages` 列表、`role` 类型）。
 - 掌控核心生成参数（`temperature` / `top_p` / `max_tokens`）。
@@ -20,8 +20,8 @@
 | **Step 2** ✅ | 掌控核心参数（`temperature`/`top_p`/`max_tokens`） | 能用自己的话解释三个参数的区别 | [code](../../demos/stage-01/step-02/core-params.ts) · [doc](./step-02.md) |
 | **Step 3** ✅ | 流式输出的艺术（SSE 打字机） | 正确处理 chunk 数据拼接，不漏字 | [code](../../demos/stage-01/step-03/stream-chat.ts) · [doc](./step-03.md) |
 | **Step 4** ✅ | System Prompt 与结构化输出 | 模型严格遵守 XML/JSON 格式，代码成功提取字段 | [code](../../demos/stage-01/step-04/structured-output.ts) · [doc](./step-04.md) |
-| Step 5 | 上下文管理（多轮对话基础） | 程序能记住上一句话的上下文（代词指代正确） | — |
-| Step 6 | 持久化对话助手（`chat_history.json` + `/clear`） | 跨进程重启后依然保持记忆，代码提交至仓库 | — |
+| **Step 5** ✅ | 上下文管理（多轮对话基础） | 程序能记住上一句话的上下文（代词指代正确） | [code](../../demos/stage-01/step-05/multi-turn-chat.ts) · [doc](./step-05.md) |
+| **Step 6** ✅ | 持久化对话助手（`chat_history.json` + `/clear`） | 跨进程重启后依然保持记忆，代码提交至仓库 | [code](../../demos/stage-01/step-06/persistent-chat.ts) · [doc](./step-06.md) |
 
 > ✅ 表示已实现；其余环节待后续逐步补全。
 
@@ -29,7 +29,7 @@
 
 ### Step 1：环境破冰与初次调用
 - **学习**：了解 Chat Completion API 的基本结构（`messages` 列表、`role` 类型）。
-- **任务**：配置 Node.js 环境，使用 openai 兼容 SDK。写出第一行代码：向 GLM 发送请求，并打印返回结果。
+- **任务**：配置 Node.js 环境，使用 openai 兼容 SDK。写出第一行代码：向 LLM 发送请求，并打印返回结果。
 - **验收**：终端成功输出模型的回复。
 
 ### Step 2：掌控核心参数

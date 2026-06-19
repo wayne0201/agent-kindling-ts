@@ -2,7 +2,7 @@
 
 > "星火燎原" —— 一个从 0 到 1 走向 AI Agent 工程师的 TypeScript 实战仓库。
 
-本项目旨在通过每日循序渐进的代码实践，深入理解大模型通信协议、Agent 核心机制以及工程化落地。以智谱 GLM 系列模型作为默认大模型底座，使用 TypeScript 进行全栈开发。
+本项目旨在通过每日循序渐进的代码实践，深入理解大模型通信协议、Agent 核心机制以及工程化落地。使用 TypeScript 进行全栈开发，通过 OpenAI 兼容协议接入智谱 GLM / DeepSeek 等模型。
 
 ## 🚀 百日 Agent 工程师突围计划
 
@@ -73,12 +73,12 @@
 
 ## 📂 阶段计划索引
 
-> 路线图中每个阶段的详细计划，统一维护在 `docs/stages/` 下（文档与代码分离——并非每个阶段都对应代码）。后续每推进一个阶段，新建对应的 `docs/stages/stage-XX/stage.md`。
+> 每个阶段拆分两个核心文档：`stage-begin.md`（规划与环节清单）和 `stage-end.md`（总结与复盘），统一维护在 `docs/stages/` 下。模板详见 `docs/_templates/stage-begin-template.md` 和 `stage-end-template.md`。
 
 | 阶段 | 主题 | 阶段总纲 |
 |------|------|----------|
-| Stage 1 | API 与 Prompt 工程 | [docs/stages/stage-01/](./docs/stages/stage-01/stage.md) |
-| Stage 2 | Function Calling | [docs/stages/stage-02/](./docs/stages/stage-02/stage.md) |
+| Stage 1 | API 与 Prompt 工程 | [规划](./docs/stages/stage-01/stage-begin.md) · [总结](./docs/stages/stage-01/stage-end.md) |
+| Stage 2 | Function Calling | 待推进 |
 | Stage 3-12 | 待推进 | — |
 
 ---
@@ -88,7 +88,7 @@
 - **语言**: TypeScript (ES Module)
 - **包管理**: pnpm
 - **运行环境**: Node.js + tsx
-- **LLM SDK**: OpenAI SDK (兼容协议接入智谱 GLM)
+- **LLM SDK**: OpenAI SDK (兼容协议接入多模型)
 - **代码规范**: ESLint + Prettier + EditorConfig
 
 ## 📁 项目结构
@@ -97,15 +97,19 @@
 agent-kindling-ts/
 ├── docs/                          # 📚 知识库与文档沉淀区
 │   ├── _templates/                # 📐 文档规范模板 (供 AI 学习参照)
-│   │   ├── stage-template.md       # 📋 阶段总纲模板
+│   │   ├── stage-begin-template.md   # 📋 阶段规划模板
+│   │   ├── stage-end-template.md     # 📋 阶段总结模板
 │   │   ├── step-template.md        # 📝 环节学习记录模板
 │   │   └── concept-template.md    # 🧠 概念字典模板
 │   ├── concepts/                  # 🧠 知识点概念字典 (持久沉淀)
 │   └── stages/                    # 📂 各阶段文档 (按阶段子目录组织)
 │       └── stage-01/
-│           ├── stage.md            # 📋 阶段总纲 (目标 / 环节清单 / 验收标准)
-│           └── step-01.md          # 📝 环节学习记录
+│           ├── stage-begin.md      # 📋 阶段规划 (目标 / 环节清单 / 验收标准)
+│           ├── stage-end.md        # 🔄 阶段总结 (学习路径 / 代码资产 / 核心认知)
+│           ├── step-01.md ~ step-06.md
 ├── demos/                         # 💻 代码实战区 (按阶段划分)
+│   ├── common/
+│   │   └── config.ts              # ⚙️ 统一 LLM 配置 (支持 glm / deepseek 切换)
 │   └── stage-01/
 │       ├── step-01/
 │       │   └── hello-glm.ts
@@ -113,8 +117,12 @@ agent-kindling-ts/
 │       │   └── core-params.ts
 │       ├── step-03/
 │       │   └── stream-chat.ts
-│       └── step-04/
-│           └── structured-output.ts
+│       ├── step-04/
+│       │   └── structured-output.ts
+│       ├── step-05/
+│       │   └── multi-turn-chat.ts
+│       └── step-06/
+│           └── persistent-chat.ts
 ├── .env                           # 🔑 环境变量 (含 API Key，已忽略)
 ├── package.json
 └── tsconfig.json
@@ -123,5 +131,5 @@ agent-kindling-ts/
 ## 🚀 快速开始
 
 1. 安装依赖: `pnpm install`
-2. 配置环境变量: `cp .env.example .env` 并填入 `ZHIPU_API_KEY`
-3. 运行任意一个环节的 Demo: `pnpm dev demos/stage-01/step-01-hello-glm/index.ts`
+2. 配置环境变量: `cp .env.example .env` 并填入 API Key（支持智谱 GLM / DeepSeek）
+3. 运行任意一个环节的 Demo: `pnpm dev demos/stage-01/step-01/hello-glm.ts`
