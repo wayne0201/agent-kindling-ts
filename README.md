@@ -78,7 +78,7 @@
 | 阶段 | 主题 | 阶段总纲 |
 |------|------|----------|
 | Stage 1 | API 与 Prompt 工程 | [规划](./docs/stages/stage-01/stage-begin.md) · [总结](./docs/stages/stage-01/stage-end.md) |
-| Stage 2 | Function Calling | 待推进 |
+| Stage 2 | Function Calling | [规划](./docs/stages/stage-02/stage-begin.md) · [总结](./docs/stages/stage-02/stage-end.md) |
 | Stage 3-12 | 待推进 | — |
 
 ---
@@ -103,26 +103,31 @@ agent-kindling-ts/
 │   │   └── concept-template.md    # 🧠 概念字典模板
 │   ├── concepts/                  # 🧠 知识点概念字典 (持久沉淀)
 │   └── stages/                    # 📂 各阶段文档 (按阶段子目录组织)
-│       └── stage-01/
-│           ├── stage-begin.md      # 📋 阶段规划 (目标 / 环节清单 / 验收标准)
-│           ├── stage-end.md        # 🔄 阶段总结 (学习路径 / 代码资产 / 核心认知)
-│           ├── step-01.md ~ step-06.md
+│       ├── stage-01/
+│       │   ├── stage-begin.md      # 📋 阶段规划 (目标 / 环节清单 / 验收标准)
+│       │   ├── stage-end.md        # 🔄 阶段总结 (学习路径 / 代码资产 / 核心认知)
+│       │   └── step-01.md ~ step-06.md
+│       └── stage-02/
+│           ├── stage-begin.md
+│           ├── stage-end.md
+│           └── step-01.md ~ step-06.md
 ├── demos/                         # 💻 代码实战区 (按阶段划分)
 │   ├── common/
 │   │   └── config.ts              # ⚙️ 统一 LLM 配置 (支持 glm / deepseek 切换)
-│   └── stage-01/
-│       ├── step-01/
-│       │   └── hello-glm.ts
-│       ├── step-02/
-│       │   └── core-params.ts
-│       ├── step-03/
-│       │   └── stream-chat.ts
-│       ├── step-04/
-│       │   └── structured-output.ts
-│       ├── step-05/
-│       │   └── multi-turn-chat.ts
-│       └── step-06/
-│           └── persistent-chat.ts
+│   ├── stage-01/
+│   │   ├── step-01/hello-glm.ts
+│   │   ├── step-02/core-params.ts
+│   │   ├── step-03/stream-chat.ts
+│   │   ├── step-04/structured-output.ts
+│   │   ├── step-05/multi-turn-chat.ts
+│   │   └── step-06/persistent-chat.ts
+│   └── stage-02/
+│       ├── step-01/function-calling-basics.ts
+│       ├── step-02/multi-tool-selection.ts
+│       ├── step-03/tool-error-handling.ts
+│       ├── step-04/stream-function-calling.ts
+│       ├── step-05/interactive-tool-agent.ts
+│       └── step-06/weather-news-agent.ts
 ├── .env                           # 🔑 环境变量 (含 API Key，已忽略)
 ├── package.json
 └── tsconfig.json

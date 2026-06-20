@@ -40,6 +40,7 @@ related_demo: ../../demos/stage-01/step-03/stream-chat.ts
 
 - [流式输出与 SSE](../../concepts/api-fundamentals/streaming-and-sse.md)
 - [Chat Completion API](../../concepts/api-fundamentals/chat-completion-api.md)（流式是该 API 的 `stream` 模式）
+- [消息角色 (role)](../../concepts/api-fundamentals/message-roles.md)（chunk 中的 `finish_reason` 和 `delta` 都与 role 机制相关）
 
 ## 🐞 踩坑记录与思考
 
