@@ -2,13 +2,13 @@
 
 > "星火燎原" —— 一个从 0 到 1 走向 AI Agent 工程师的 TypeScript 实战仓库。
 
-本项目旨在通过每日循序渐进的代码实践，深入理解大模型通信协议、Agent 核心机制以及工程化落地。使用 TypeScript 进行全栈开发，通过 OpenAI 兼容协议接入智谱 GLM / DeepSeek 等模型。
+本项目旨在通过循序渐进的代码实践，深入理解大模型通信协议、Agent 核心机制以及工程化落地。使用 TypeScript 进行全栈开发，通过 OpenAI 兼容协议接入智谱 GLM / DeepSeek 等模型。
 
-## 🚀 百日 Agent 工程师突围计划
+## 🚀 Agent 工程师突围计划
 
 ### 一、 核心学习方向规划
 
-在 100 天内，攻克四大技术支柱，这是区分"调包侠"和"Agent工程师"的分水岭：
+攻克四大技术支柱，这是区分"调包侠"和"Agent工程师"的分水岭：
 
 - **底层原理与交互**：LLM 运行机制、Prompt 工程、上下文窗口管理、Harness Loop（执行控制循环）。
 - **核心组件与能力**：Function Calling（工具调用）、ReAct 推理模式、短期与长期记忆机制、Skills（技能编排与 SOP 封装）。
@@ -79,7 +79,8 @@
 |------|------|----------|
 | Stage 1 | API 与 Prompt 工程 | [规划](./docs/stages/stage-01/stage-begin.md) · [总结](./docs/stages/stage-01/stage-end.md) |
 | Stage 2 | Function Calling | [规划](./docs/stages/stage-02/stage-begin.md) · [总结](./docs/stages/stage-02/stage-end.md) |
-| Stage 3-12 | 待推进 | — |
+| Stage 3 | Harness Loop（基础版） | [规划](./docs/stages/stage-03/stage-begin.md) · [总结](./docs/stages/stage-03/stage-end.md) |
+| Stage 4-12 | 待推进 | — |
 
 ---
 
@@ -107,9 +108,12 @@ agent-kindling-ts/
 │       │   ├── stage-begin.md      # 📋 阶段规划 (目标 / 环节清单 / 验收标准)
 │       │   ├── stage-end.md        # 🔄 阶段总结 (学习路径 / 代码资产 / 核心认知)
 │       │   └── step-01.md ~ step-06.md
-│       └── stage-02/
+│       ├── stage-02/
+│       │   ├── stage-begin.md
+│       │   ├── stage-end.md
+│       │   └── step-01.md ~ step-06.md
+│       └── stage-03/
 │           ├── stage-begin.md
-│           ├── stage-end.md
 │           └── step-01.md ~ step-06.md
 ├── demos/                         # 💻 代码实战区 (按阶段划分)
 │   ├── common/
@@ -121,13 +125,21 @@ agent-kindling-ts/
 │   │   ├── step-04/structured-output.ts
 │   │   ├── step-05/multi-turn-chat.ts
 │   │   └── step-06/persistent-chat.ts
-│   └── stage-02/
-│       ├── step-01/function-calling-basics.ts
-│       ├── step-02/multi-tool-selection.ts
-│       ├── step-03/tool-error-handling.ts
-│       ├── step-04/stream-function-calling.ts
-│       ├── step-05/interactive-tool-agent.ts
-│       └── step-06/weather-news-agent.ts
+│   ├── stage-02/
+│   │   ├── step-01/function-calling-basics.ts
+│   │   ├── step-02/_shared.ts + tool-selection.ts + tool-choice-param.ts
+│   │   ├── step-03/tool-error-handling.ts
+│   │   ├── step-04/stream-function-calling.ts
+│   │   ├── step-05/interactive-tool-agent.ts
+│   │   └── step-06/weather-news-agent.ts
+│   └── stage-03/
+│       ├── workspace/             # 📁 Agent 沙箱工作目录 (文件/脚本操作的真实落点)
+│       ├── step-01/harness-loop.ts
+│       ├── step-02/react-agent.ts
+│       ├── step-03/file-tools.ts
+│       ├── step-04/run-script.ts
+│       ├── step-05/context-window.ts
+│       └── step-06/coding-agent.ts
 ├── .env                           # 🔑 环境变量 (含 API Key，已忽略)
 ├── package.json
 └── tsconfig.json

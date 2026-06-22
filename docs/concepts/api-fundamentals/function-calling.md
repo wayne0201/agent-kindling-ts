@@ -67,7 +67,9 @@ tools: [{
 }
 ```
 
-**注意**：`arguments` 是 **JSON 字符串**，不是对象，必须 `JSON.parse()` 解析。
+**注意 1**：`arguments` 是 **JSON 字符串**，不是对象，必须 `JSON.parse()` 解析。
+
+**注意 2（重要踩坑）**：`finish_reason: "stop"` **不等于任务完成**——它只表示"模型此轮推理结束"。在工具调用场景下，`"stop"` 意味着"模型本轮决定调用工具，等你回传结果后再继续"，而不是"模型已经答完了"。判断任务是否完成的可靠信号是**检查 `message.tool_calls` 是否为空**：无 `tool_calls` + 有 `content` = 任务完成；有 `tool_calls` = 还需要继续循环。这是 Harness Loop 终止条件设计的核心依据。
 
 ### 第③步：客户端执行工具
 
@@ -105,12 +107,14 @@ messages.push({
 ## 🛠️ 在 Agent 架构中的作用
 
 - **Agent 行动能力的核心**：Stage 1 的 Agent 只会"说话"，Function Calling 让 Agent 能"做事"——查天气、搜新闻、操作数据库。
-- **Harness Loop 的关键环节**：Agent 的核心循环是"观察 → 思考 → 行动"，Function Calling 对应"行动"——模型决定做什么，客户端执行。
-- **ReAct 模式的基础**：推理（Reasoning）+ 行动（Acting），Function Calling 是"行动"的标准实现方式。
+- **Harness Loop 的"行动"环节**：Agent 的核心循环是"观察 → 思考 → 行动"，Function Calling 对应"行动"——模型决定做什么，客户端执行。但单次 Function Calling 只能走一步，要实现多步自主循环（调用工具 → 看结果 → 再决定），需要 Harness Loop（软件层面的 while 循环）提供多轮执行能力。
+- **ReAct 模式的基础**：推理（Reasoning）+ 行动（Acting），Function Calling 是"行动"的标准实现方式。ReAct 模式通过 Prompt 让模型先输出 Thought 再触发 tool_calls（Action），Loop 提供多轮 Thought→Action→Observation 的循环能力。
 
 ## 🔗 相关代码落地
 
 - [Stage 2 · Step 1 - Function Calling 初体验](../stages/stage-02/step-01.md)
+- [Stage 3 · Step 3 - 文件操作工具集](../stages/stage-03/step-03.md)（真实副作用工具的 Function Calling 落地）
+- [Stage 3 · Step 4 - 脚本执行工具](../stages/stage-03/step-04.md)（异步工具的 Function Calling 落地）
 
 ## 🧩 关联概念
 

@@ -40,6 +40,7 @@ API 响应中的 `usage` 字段统计三类 token：
 
 - [Stage 1 · Step 1 - 环境破冰与第一次调用](../stages/stage-01/step-01.md)（首次打印 token 消耗）
 - [Stage 1 · Step 2 - 掌控核心参数](../stages/stage-01/step-02.md)（max_tokens 截断实验）
+- [Stage 3 · Step 5 - 滑动窗口上下文截断](../stages/stage-03/step-05.md)（token 估算与滑动窗口截断落地）
 
 ## 🧩 关联概念
 

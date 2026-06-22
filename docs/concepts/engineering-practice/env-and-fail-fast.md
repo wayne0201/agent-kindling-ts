@@ -38,6 +38,7 @@ if (!process.env.ZHIPU_API_KEY) {
 ## 🔗 相关代码落地
 
 - [Stage 1 · Step 1 - 环境破冰与第一次调用](../../stages/stage-01/step-01.md)
+- [Stage 3 · Step 3 - 文件操作工具集](../../stages/stage-03/step-03.md)（工作目录初始化保障）
 
 ## 🧩 关联概念
 

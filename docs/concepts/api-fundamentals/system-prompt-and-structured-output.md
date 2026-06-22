@@ -81,6 +81,7 @@ const ratingMatch = content.match(/<评价>([\s\S]*?)<\/评价>/);
 ## 🔗 相关代码落地
 
 - [Stage 1 · Step 4 - System Prompt 与结构化输出](../stages/stage-01/step-04.md)
+- [Stage 3 · Step 2 - ReAct 推理模式](../stages/stage-03/step-02.md)（用 System Prompt 约束"先思考再行动"的行为模式）
 
 ## 🧩 关联概念
 
