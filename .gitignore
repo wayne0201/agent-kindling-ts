@@ -3,4 +3,5 @@ dist/
 .env
 *.log
 .DS_Store
-demos/stage-03/workspace/
+**/workspace/
+**/stage-04/data/

@@ -14,6 +14,9 @@ importers:
       openai:
         specifier: ^6.44.0
         version: 6.44.0
+      pdf-parse:
+        specifier: ^1.1.1
+        version: 1.1.4
     devDependencies:
       '@types/node':
         specifier: ^25.9.3
@@ -503,6 +506,9 @@ packages:
   natural-compare@1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==, tarball: https://registry.npmmirror.com/natural-compare/-/natural-compare-1.4.0.tgz}
 
+  node-ensure@0.0.0:
+    resolution: {integrity: sha512-DRI60hzo2oKN1ma0ckc6nQWlHU69RH6xN0sjQTjMpChPfTYvKZdcQFfdYK2RWbJcKyUizSIy/l8OTGxMAM1QDw==, tarball: https://registry.npmmirror.com/node-ensure/-/node-ensure-0.0.0.tgz}
+
   openai@6.44.0:
     resolution: {integrity: sha512-09/gH+8jH0RgUwsgWHAaxsKGRT5zVZ95IaJUnqAWj6XejIBmnFRwq2WUIF37VtDEsmGrtPmvCs5+yBSeZGWvkA==, tarball: https://registry.npmmirror.com/openai/-/openai-6.44.0.tgz}
     peerDependencies:
@@ -533,6 +539,10 @@ packages:
   path-key@3.1.1:
     resolution: {integrity: sha512-ojmeN0qd+y0jszEtoY48r0Peq5dwMEkIlCOu6Q5f41lfkswXuKtYrhgoTpLnyIcHm24Uhqx+5Tqm2InSwLhE6Q==, tarball: https://registry.npmmirror.com/path-key/-/path-key-3.1.1.tgz}
     engines: {node: '>=8'}
+
+  pdf-parse@1.1.4:
+    resolution: {integrity: sha512-XRIRcLgk6ZnUbsHsYXExMw+krrPE81hJ6FQPLdBNhhBefqIQKXu/WeTgNBGSwPrfU0v+UCEwn7AoAUOsVKHFvQ==, tarball: https://registry.npmmirror.com/pdf-parse/-/pdf-parse-1.1.4.tgz}
+    engines: {node: '>=6.8.1'}
 
   picomatch@4.0.4:
     resolution: {integrity: sha512-QP88BAKvMam/3NxH6vj2o21R6MjxZUAd6nlwAS/pnGvN9IVLocLHxGYIzFhg6fUQ+5th6P4dv4eW9jX3DSIj7A==, tarball: https://registry.npmmirror.com/picomatch/-/picomatch-4.0.4.tgz}
@@ -1036,6 +1046,8 @@ snapshots:
 
   natural-compare@1.4.0: {}
 
+  node-ensure@0.0.0: {}
+
   openai@6.44.0: {}
 
   optionator@0.9.4:
@@ -1058,6 +1070,10 @@ snapshots:
   path-exists@4.0.0: {}
 
   path-key@3.1.1: {}
+
+  pdf-parse@1.1.4:
+    dependencies:
+      node-ensure: 0.0.0
 
   picomatch@4.0.4: {}
 

@@ -80,7 +80,8 @@
 | Stage 1 | API 与 Prompt 工程 | [规划](./docs/stages/stage-01/stage-begin.md) · [总结](./docs/stages/stage-01/stage-end.md) |
 | Stage 2 | Function Calling | [规划](./docs/stages/stage-02/stage-begin.md) · [总结](./docs/stages/stage-02/stage-end.md) |
 | Stage 3 | Harness Loop（基础版） | [规划](./docs/stages/stage-03/stage-begin.md) · [总结](./docs/stages/stage-03/stage-end.md) |
-| Stage 4-12 | 待推进 | — |
+| Stage 4 | 向量检索与 RAG 基础 | [规划](./docs/stages/stage-04/stage-begin.md) · [总结](./docs/stages/stage-04/stage-end.md) |
+| Stage 5-12 | 待推进 | — |
 
 ---
 
@@ -112,8 +113,13 @@ agent-kindling-ts/
 │       │   ├── stage-begin.md
 │       │   ├── stage-end.md
 │       │   └── step-01.md ~ step-06.md
-│       └── stage-03/
+│       ├── stage-03/
+│       │   ├── stage-begin.md
+│       │   ├── stage-end.md
+│       │   └── step-01.md ~ step-06.md
+│       └── stage-04/
 │           ├── stage-begin.md
+│           ├── stage-end.md
 │           └── step-01.md ~ step-06.md
 ├── demos/                         # 💻 代码实战区 (按阶段划分)
 │   ├── common/
@@ -132,14 +138,23 @@ agent-kindling-ts/
 │   │   ├── step-04/stream-function-calling.ts
 │   │   ├── step-05/interactive-tool-agent.ts
 │   │   └── step-06/weather-news-agent.ts
-│   └── stage-03/
-│       ├── workspace/             # 📁 Agent 沙箱工作目录 (文件/脚本操作的真实落点)
-│       ├── step-01/harness-loop.ts
-│       ├── step-02/react-agent.ts
-│       ├── step-03/file-tools.ts
-│       ├── step-04/run-script.ts
-│       ├── step-05/context-window.ts
-│       └── step-06/coding-agent.ts
+│   ├── stage-03/
+│   │   ├── workspace/             # 📁 Agent 沙箱工作目录 (文件/脚本操作的真实落点)
+│   │   ├── step-01/harness-loop.ts
+│   │   ├── step-02/react-agent.ts
+│   │   ├── step-03/file-tools.ts
+│   │   ├── step-04/run-script.ts
+│   │   ├── step-05/context-window.ts
+│   │   └── step-06/coding-agent.ts
+│   └── stage-04/
+│       ├── _shared/               # 🔧 RAG 共享模块 (embedding / chunker / pdf-parser / vector-store)
+│       ├── knowledge/             # 📚 知识库样本 (llm-handbook.txt，可放 PDF)
+│       ├── step-01/embedding-basics.ts
+│       ├── step-02/chunking.ts
+│       ├── step-03/parse-pdf.ts
+│       ├── step-04/vector-store.ts
+│       ├── step-05/rag-query.ts
+│       └── step-06/pdf-qa-agent.ts
 ├── .env                           # 🔑 环境变量 (含 API Key，已忽略)
 ├── package.json
 └── tsconfig.json
